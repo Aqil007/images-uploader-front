@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     const auth = JSON.parse(localStorage.getItem("userLogin"));
     if (!auth) {
-      alert("You need to login first !")
+      alert("Welcome to Images Backup!! To Avail Services You need to login first !")
       nevigate("/login");
     } 
     const head = document.getElementById("header").offsetHeight

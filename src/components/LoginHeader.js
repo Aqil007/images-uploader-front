@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudDownloadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const LoginHeader = () => {
   const location = useLocation();
@@ -10,7 +12,9 @@ const LoginHeader = () => {
     <div>
       <Navbar bg="dark" expand="lg">
         <Container>
-          <h4 className="text-light">Upload Images</h4>{" "}
+        <h4 className="text-light">
+  <FontAwesomeIcon icon={faCloudDownloadAlt} /> Images Backup
+</h4>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             className="bg-light"
