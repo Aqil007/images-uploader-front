@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudDownloadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const nevigate = useNavigate();
@@ -18,7 +20,8 @@ const Header = () => {
         <Container>
           <Link to={"/"} className="text-light nav-link">
             {" "}
-            <h4>Upload Images</h4>{" "}
+            <h4 className="text-light">
+  <FontAwesomeIcon icon={faCloudDownloadAlt} />  Upload Images</h4>{" "}
           </Link>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"

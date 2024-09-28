@@ -59,20 +59,44 @@ export default function Home() {
         <Loader />
       ) : (
         <div
-          className="gallery w-100"
-          style={{
-            gridTemplateColumns:
-              imageIds.length > 12 ? "repeat(5, 1fr)" : "repeat(4, 1fr)",
-          }}
-        >
-          {imageIds && imageIds.length > 0 ? (
-            imageIds.map((imageId, index) => (
-              <div className=" gallery-image overflow-hidden" key={index}>
-                <img
-                  src={imageId.image_url}
-                  onClick={() => handleClick(imageId.image_url)}
-                  alt="user images"
-                />
+        className="gallery w-100"
+        style={{
+          display: "grid",
+          gridGap: "16px", // Spacing between images
+          gridTemplateColumns:
+            imageIds.length > 12 ? "repeat(5, 1fr)" : "repeat(4, 1fr)",
+          padding: "20px", // Adds padding around the gallery
+          height: "300px",
+        }}
+      >
+        {imageIds && imageIds.length > 0 ? (
+          imageIds.map((imageId, index) => (
+            <div
+              className="gallery-image overflow-hidden"
+              key={index}
+              style={{
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "8px", // Rounded corners for a smooth look
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Soft shadow for depth
+                transition: "transform 0.3s ease", // Smooth zoom effect
+              }}
+            >
+              <img
+                src={imageId.image_url}
+                onClick={() => handleClick(imageId.image_url)}
+                alt="user images"
+                style={{
+                  width: "100%", // Ensure images fill the grid space
+                  height: "100%", // Maintain aspect ratio
+                  objectFit: "cover", // Crop images to fit without distortion
+                  transition: "transform 0.3s ease-in-out", // Smooth scaling on hover
+                }}
+                onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")} // Zoom in on hover
+                onMouseLeave={(e) => (e.target.style.transform = "scale(1)")} // Zoom out on mouse leave
+              />
+           
+      
                 {/* <Image
                   cloudName={"dsdcsntrd"}
                   publicId={imageId.public_id}
